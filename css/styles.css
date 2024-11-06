@@ -201,8 +201,60 @@ body {
 
 .gui__label--switch{
 	margin: 0;
-	
+	padding-top: 0.75rem;
 }
+
+.gui__btn{
+	background-color: #00A74A;
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-left: 2rem;
+	border-radius: 5rem;
+	box-shadow: 0 .2rem .3rem #222;
+	border: .4rem solid #444;
+	cursor: pointer;
+}
+
+.gui__btn:active{
+	transform: translate(0, .3rem);
+	box-shadow: none
+}
+
+.gui__btn--start{
+	background-color: #ff0000;
+}
+
+.gui__btn--strict{
+    background-color: #ffff00;
+}
+
+.gui__btn-switch{
+	background-color: #222;
+	margin-left: .5rem;
+	margin-right: .5rem;
+	width: 5rem;
+	height: 2.3rem;
+	border-radius: .3rem;
+	cursor: pointer;
+}
+
+.gui__btn-switch::before{
+	content: "";
+	background-color: var(--clr-switch);
+	display: block;
+	position: relative;
+	left: 2.5rem;
+	width: 2.2rem;
+	height: 1.9rem;
+	border-radius: .3rem;
+	border: .2rem solid #333;
+}
+
+.gui__btn-switch--on::before{
+
+	left: 0;
+}
+
 /**********************************/
 /* 4. Footer
 /**********************************/
