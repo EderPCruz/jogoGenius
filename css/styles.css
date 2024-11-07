@@ -112,6 +112,7 @@ body {
 .game__pad{
 	width: calc(var(--game-size) /2);
 	height: calc(var(--game-size) /2);
+	border: var(--game-border);
 }
 
 .game__pad--tl{
@@ -208,7 +209,7 @@ body {
 	background-color: #00A74A;
 	width: 2.5rem;
 	height: 2.5rem;
-	margin-left: 2rem;
+	margin-left: 1rem;
 	border-radius: 5rem;
 	box-shadow: 0 .2rem .3rem #222;
 	border: .4rem solid #444;
@@ -253,6 +254,40 @@ body {
 .gui__btn-switch--on::before{
 
 	left: 0;
+}
+
+.gui__counter{
+	background-color: var(--clr-counter-bg);
+	color: var(--clr-counter-off);
+	font-family: "Iceland", cursive;
+	font-weight: bold;
+	font-size: 3rem;
+	text-align: right;
+	width: 5.5rem;
+	border: .3rem solid #000;
+	border-radius: 1rem;
+	padding-right: .2rem;
+	padding-left: .3rem;
+}
+
+.gui__counter--on{
+	color: var(--clr-counter-on);
+}
+
+.gui__led{
+	background-color: #32050C;
+	margin-left: 1rem;
+	margin-bottom: .5rem;
+    width: .8rem;
+    height: .8rem;
+	border: .2rem solid #222;
+    border-radius: 2rem;
+}
+
+
+
+.gui__led--active{
+    background-color: red;
 }
 
 /**********************************/
