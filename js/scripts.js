@@ -81,7 +81,7 @@ const padListener = (e) => {
 	if(_data.playerSequence[currentMove] !== _data.gameSequence[currentMove]){
 		_data.playerCanPlay = false;
 		disablePads();
-		playSequence();
+		resetOrPlayAgain();
 	}
 	else if(currentMove === _data.gameSequence.length -1){
 		newColor();
@@ -90,6 +90,7 @@ const padListener = (e) => {
 
 	waitForPlayerClick();
 }
+
 _gui.pads.forEach(pad => {
 	pad.addEventListener("click", padListener);
 });
@@ -108,6 +109,11 @@ const setScore = () => {
 }
 
 const newColor = () => {
+	if(_data.score === 20){
+		blink("**", startGame);
+		return;
+	}
+	
 	_data.gameSequence.push(Math.floor(Math.random() * 4));
 	_data.score++;
 
@@ -164,6 +170,7 @@ const blink = (text, callback) => {
 			_gui.counter.classList.remove("gui__counter--on");
 			return;
 		}
+
 		if(on) {
 			_gui.counter.classList.remove("gui__counter--on");
 		}
@@ -188,11 +195,26 @@ const waitForPlayerClick = () => {
 			return;
 
 		disablePads();
-		playSequence();
+		resetOrPlayAgain();
 	}, 5000);
 }
 
 const resetOrPlayAgain = () => {
+	_data.playerCanPlay = false;
+
+	if(_data.strict){
+		blink("!!", () => {
+			_data.score = 0;
+			_data.gameSequence = [];
+			startGame();
+		});
+	}
+	else {
+		blink("!!", () => {
+			setScore();
+			playSequence();
+		});
+	}
 
 }
 
