@@ -298,3 +298,12 @@ footer{
 	margin-top: 4rem;
 	font-size: 1rem;
 }
+
+/* Media Queries */
+
+
+@media (max-width: 600px){
+	html {
+		font-size: 45%;
+	}
+}
